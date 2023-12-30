@@ -1,0 +1,20 @@
+<launch>
+    <node pkg="rviz2" exec="rviz2" name="rviz2"/>
+
+    <param name="cobot_urdf" value="package://cobot_manipulator/urdf/cobot.urdf"/>
+
+    <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher" output="screen">
+        <ros-args>
+        <param name="robot_description" value="$(param cobot_urdf)"/>
+        </ros-args>
+    </node>
+</launch>
+
+<!-- <launch>
+  <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
+  <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
+  <node pkg="turtlesim" exec="mimic" name="mimic">
+    <remap from="/input/pose" to="/turtlesim1/turtle1/pose"/>
+    <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel"/>
+  </node>
+</launch> -->

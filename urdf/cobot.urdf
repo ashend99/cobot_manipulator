@@ -1,0 +1,394 @@
+<?xml version="1.0"?>
+
+<robot name="cobot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <inertia mass="40.0"/>
+  
+  <link
+    name="base_link">
+    <!--<inertial>
+      <origin
+        xyz="-0.0054024 -5.695E-07 0.040868"
+        rpy="0 0 0"/>
+      <mass
+        value="1.9033" />
+      <inertia
+        ixx="0.0044459"
+        ixy="-1.2065E-06"
+        ixz="4.8707E-05"
+        iyy="0.0051616"
+        iyz="-2.1193E-08"
+        izz="0.0076082" />
+    </inertial>-->
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.57 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/base_link.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.15 0.15 0.15 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_1">
+    <inertial>
+      <origin
+        xyz="-7.9641E-07 -0.017683 0.12391"
+        rpy="0 0 0" />
+      <mass
+        value="5.5063" />
+      <inertia
+        ixx="0.020803"
+        ixy="1.2745E-09"
+        ixz="-1.467E-07"
+        iyy="0.0189"
+        iyz="0.00566"
+        izz="0.019496" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.56 0.93 0.56 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.085"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="2.0944" />
+  </joint>
+  <link
+    name="link_2">
+    <inertial>
+      <origin
+        xyz="9.0192E-07 -0.12698 0.34018"
+        rpy="0 0 0" />
+      <mass
+        value="12.121" />
+      <inertia
+        ixx="0.95901"
+        ixy="-3.3165E-07"
+        ixz="-2.5217E-06"
+        iyy="0.94749"
+        iyz="-0.025323"
+        izz="0.038025" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.56 0.93 0.56 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="0 -0.075186 0.159"
+      rpy="0 0 0" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="2.0944" />
+  </joint>
+  <link
+    name="link_3">
+    <inertial>
+      <origin
+        xyz="0.035205 0.068719 2.6933E-07"
+        rpy="0 0 0" />
+      <mass
+        value="2.8442" />
+      <inertia
+        ixx="0.0064391"
+        ixy="-0.00042348"
+        ixz="-2.309E-08"
+        iyy="0.0078421"
+        iyz="-4.8323E-08"
+        izz="0.008109" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.56 0.93 0.56 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="0 0 0.71002"
+      rpy="0 0 0" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.71"
+      upper="4.71"
+      effort="0"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="link_4">
+    <inertial>
+      <origin
+        xyz="0.23387 -0.0016926 6.0788E-07"
+        rpy="0 0 0" />
+      <mass
+        value="3.4172" />
+      <inertia
+        ixx="0.0042325"
+        ixy="0.0025254"
+        ixz="-1.2208E-07"
+        iyy="0.049785"
+        iyz="2.7019E-08"
+        izz="0.049781" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.56 0.93 0.56 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="revolute">
+    <origin
+      xyz="0.14747 0.075187 0"
+      rpy="0 0 0" />
+    <parent
+      link="link_3" />
+    <child
+      link="link_4" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.32"
+      upper="3.32"
+      effort="34.8"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="link_5">
+    <inertial>
+      <origin
+        xyz="-0.085136 0.011963 -8.1413E-08"
+        rpy="0 0 0" />
+      <mass
+        value="1.483" />
+      <inertia
+        ixx="0.0023969"
+        ixy="0.00087645"
+        ixz="3.9055E-08"
+        iyy="0.0024921"
+        iyz="-4.1231E-08"
+        izz="0.0029639" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.56 0.93 0.56 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="revolute">
+    <origin
+      xyz="0.39153 -0.058144 0"
+      rpy="-3.1416 0 1.5708" />
+    <parent
+      link="link_4" />
+    <child
+      link="link_5" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="26"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="end_effector">
+    <inertial>
+      <origin
+        xyz="0.032091 0.00047493 4.432E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.36865" />
+      <inertia
+        ixx="0.00037851"
+        ixy="2.3137E-19"
+        ixz="-2.353E-08"
+        iyy="0.00028272"
+        iyz="1.0588E-21"
+        izz="0.00028257" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/end_effector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.15 0.15 0.15 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_manipulator/meshes/end_effector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="revolute">
+    <origin
+      xyz="-0.10536 0.080476 0"
+      rpy="3.1416 0 1.5708" />
+    <parent
+      link="link_5" />
+    <child
+      link="end_effector" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.93"
+      upper="3.93"
+      effort="11"
+      velocity="3.14" />
+  </joint>
+</robot>
