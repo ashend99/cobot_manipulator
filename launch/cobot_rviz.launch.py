@@ -1,8 +1,3 @@
-# Author: Addison Sears-Collins
-# Date: September 14, 2021
-# Description: Launch a two-wheeled robot URDF file using Rviz.
-# https://automaticaddison.com
-
 import os
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
